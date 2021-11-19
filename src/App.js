@@ -2,7 +2,6 @@ import { Component } from 'react';
 import "./App.css";
 import data from './data/productData.js'
 import Cart from './components/Cart'
-import AllProducts from './components/AllProducts';
 
 class App extends Component {
 
@@ -24,6 +23,8 @@ class App extends Component {
 
     this.setState({
       cartProducts: [...this.state.cartProducts, products],
+
+
     })
 
   }
@@ -38,7 +39,9 @@ class App extends Component {
           <div id="item">
             <div> <h3>{name}</h3> </div>
             <div> Price: ${price.toFixed(2)} </div>
+            <div>
             <button name="" onClick={() => this.itemClick(product)}> Add To Cart </button>
+            </div>
             <img src={img} alt="item image" />
             <div> Description: {description} </div>
           </div>
@@ -58,7 +61,7 @@ class App extends Component {
     return (
       <div>
         <h1>My Garage Sale</h1>
-        <AllProducts/>
+        {productArray}
         <h1>Cart</h1>
         {currentStateCart}
       </div>

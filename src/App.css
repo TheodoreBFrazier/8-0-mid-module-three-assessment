@@ -1,10 +1,9 @@
 
+
+
 #items-display {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    width: 300px;
 }
 
-#item {
-    display: grid;
-    grid-template-columns: repeat(2, 3fr);
-}
