@@ -2,14 +2,14 @@ import { Component } from 'react';
 import "./App.css";
 import data from './data/productData.js'
 import Cart from './components/Cart'
-
+import AllProducts from './components/AllProducts';
 
 class App extends Component {
 
   constructor() {
     super()
     this.state = {
-      garageSaleList: data.productData,
+      products: data.productData,
       cartProducts: [],
 
 
@@ -17,31 +17,28 @@ class App extends Component {
   }
 
 
-  itemClick = (productData) => {
+  itemClick = (products) => {
     if (this.state.cartProducts > 0) {
       return;
     }
 
     this.setState({
-      cartProducts: [...this.state.cartProducts, productData],
-
-
+      cartProducts: [...this.state.cartProducts, products],
     })
 
   }
 
 
-
   render() {
 
-    let productArray = this.state.garageSaleList.map(product => {
+    let productArray = this.state.products.map(product => {
       let { name, price, description, img } = product;
       return (
         <div id="items-display">
           <div id="item">
             <div> <h3>{name}</h3> </div>
             <div> Price: ${price.toFixed(2)} </div>
-            <button name="cart-add" onClick={() => this.itemClick(product)}> Add to Cart </button>
+            <button name="" onClick={() => this.itemClick(product)}> Add To Cart </button>
             <img src={img} alt="item image" />
             <div> Description: {description} </div>
           </div>
@@ -61,7 +58,7 @@ class App extends Component {
     return (
       <div>
         <h1>My Garage Sale</h1>
-        {productArray}
+        <AllProducts/>
         <h1>Cart</h1>
         {currentStateCart}
       </div>
