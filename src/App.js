@@ -11,6 +11,8 @@ class App extends Component {
       products: data.productData,
       cartProducts: [],
 
+      currentPrice: 0,
+
 
     }
   }
@@ -23,8 +25,9 @@ class App extends Component {
 
     this.setState({
       cartProducts: [...this.state.cartProducts, products],
-
-
+      currentPrice: this.state.currentPrice + products.price,
+      tax: this.state.currentPrice * 0.5,
+      total: this.state.currentPrice + this.state.tax,
 
     })
 
@@ -41,7 +44,7 @@ class App extends Component {
             <div> <h3>{name}</h3> </div>
             <div> Price: ${price.toFixed(2)} </div>
             <div>
-            <button name="" onClick={() => this.itemClick(product)}> Add To Cart </button>
+              <button name="" onClick={() => this.itemClick(product)}> Add To Cart </button>
             </div>
             <img src={img} alt="item image" />
             <div> Description: {description} </div>
@@ -54,7 +57,9 @@ class App extends Component {
       return (
         <div className="cart-container">
           <div> {product.name} </div>
-         
+          <div><h2>Subtotal: ${this.state.currentPrice.toFixed(2)}</h2></div>
+          <div><h2>Tax: ${this.state.tax.toFixed(2)}</h2></div>
+          <div><h2>Total: ${this.state.total} </h2></div>
         </div>
       )
     })
