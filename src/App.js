@@ -41,12 +41,9 @@ class App extends Component {
           <div id="item">
             <div> <h3>{name}</h3> </div>
             <div> Price: ${price.toFixed(2)} </div>
-            <div
-              className="container-item"
-              onClick={() => this.itemClick(product)}>
-              <img src={img} alt="item image" />
-              <div> Description: {description} </div>
-            </div>
+            <button name="cart-add" onClick={() => this.itemClick(product)}> Add to Cart </button>
+            <img src={img} alt="item image" />
+            <div> Description: {description} </div>
           </div>
         </div>
       )
