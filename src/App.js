@@ -24,12 +24,11 @@ class App extends Component {
 
       return (
         <div id="test">
-          <h1>My Garage Sale</h1>
           <div> Id: {id}</div>
           <div> Name: {name}</div>
           <div> Price: {price} </div>
           <div> Description: {description} </div>
-          <div> IMg: {img} </div>
+          <img src = {img} alt = "item image" />
         </div>
       )
     })
