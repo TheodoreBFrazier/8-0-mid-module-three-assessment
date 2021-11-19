@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import "./App.css";
 import data from './data/productData.js'
-import Form from './components/Cart'
+
 
 class App extends Component {
 
