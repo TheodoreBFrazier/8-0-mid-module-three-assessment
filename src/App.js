@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import "./App.css";
 import data from './data/productData.js'
-import Cart from './components/Cart'
+import Form from './components/Cart'
 
 class App extends Component {
 
@@ -23,6 +23,7 @@ class App extends Component {
 
     this.setState({
       cartProducts: [...this.state.cartProducts, products],
+
 
 
     })
@@ -53,13 +54,14 @@ class App extends Component {
       return (
         <div className="cart-container">
           <div> {product.name} </div>
+         
         </div>
       )
     })
 
 
     return (
-      <div>
+      <div >
         <h1>My Garage Sale</h1>
         {productArray}
         <h1>Cart</h1>
