@@ -1,1 +1,10 @@
 
+#items-display {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+#item {
+    display: grid;
+    grid-template-columns: repeat(2, 3fr);
+}

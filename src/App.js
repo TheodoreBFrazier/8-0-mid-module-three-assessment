@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import "./App.css";
-import productData from './data/productData.js';
 import data from './data/productData.js'
+import Cart from './components/Cart'
 
 
 class App extends Component {
@@ -17,32 +17,58 @@ class App extends Component {
   }
 
 
+  itemClick = (productData) => {
+    if (this.state.cartProducts > 0) {
+      return;
+    }
+
+    this.setState({
+      cartProducts: [...this.state.cartProducts, productData],
+
+
+    })
+
+  }
+
+
+
   render() {
 
-    let productArray = this.state.garageSaleList.map(product => { 
-      let { id, name, price, description, img } = product;
-
+    let productArray = this.state.garageSaleList.map(product => {
+      let { name, price, description, img } = product;
       return (
-        <div id="test">
-          <div> Id: {id}</div>
-          <div> Name: {name}</div>
-          <div> Price: {price} </div>
-          <div> Description: {description} </div>
-          <img src = {img} alt = "item image" />
+        <div id="items-display">
+          <div id="item">
+            <div> <h3>{name}</h3> </div>
+            <div> Price: ${price.toFixed(2)} </div>
+            <div
+              className="container-item"
+              onClick={() => this.itemClick(product)}>
+              <img src={img} alt="item image" />
+              <div> Description: {description} </div>
+            </div>
+          </div>
         </div>
       )
     })
 
-    
+    let currentStateCart = this.state.cartProducts.map((product) => {
+      return (
+        <div className="cart-container">
+          <div> {product.name} </div>
+        </div>
+      )
+    })
 
 
-    return(
+    return (
       <div>
-      {productArray}
+        <h1>My Garage Sale</h1>
+        {productArray}
+        <h1>Cart</h1>
+        {currentStateCart}
       </div>
     )
-
-
 
   }
 
